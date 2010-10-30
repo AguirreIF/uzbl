@@ -705,7 +705,8 @@ struct {const char *key; CommandInfo value;} cmdlist[] =
     { "menu_image_remove",              {menu_remove_image, TRUE}       },
     { "menu_editable_remove",           {menu_remove_edit, TRUE}        },
     { "hardcopy",                       {hardcopy, TRUE}                },
-    { "include",                        {include, TRUE}                 }
+    { "include",                        {include, TRUE}                 },
+    { "show_inspector",                 {show_inspector, 0}             }
 };
 
 void
@@ -997,6 +998,16 @@ include(WebKitWebView *page, GArray *argv, GString *result) {
         g_free(path);
     }
     g_free(pe);
+}
+
+void
+show_inspector(WebKitWebView *page, GArray *argv, GString *result) {
+    (void) page;
+    (void) argv;
+    (void) result;
+
+    printf ("Trying to show Web Inspector.\n");
+    webkit_web_inspector_show(uzbl.gui.inspector);
 }
 
 void
