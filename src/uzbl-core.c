@@ -2355,7 +2355,7 @@ load_uri_imp(gchar *uri) {
     if (!soup_uri) {
         gchar* fullpath;
         if (g_path_is_absolute (newuri->str))
-            fullpath = newuri->str;
+            fullpath = g_strdup (newuri->str);
         else {
             gchar* wd = g_get_current_dir ();
             fullpath = g_build_filename (wd, newuri->str, NULL);
