@@ -2366,6 +2366,7 @@ load_uri_imp(gchar *uri) {
             g_string_printf (newuri, "file://%s", fullpath);
         else
             g_string_prepend (newuri, "http://");
+        g_free(fullpath);
     } else {
         soup_uri_free(soup_uri);
     }
