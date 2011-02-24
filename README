@@ -689,6 +689,17 @@ Events have this format:
   `uri`.
 * `EVENT [uzbl_instance_name] LINK_UNHOVER uri`: The mouse leaves the link
   `uri`.
+* `EVENT [uzbl_instance_name] PTR_MOVE x y mask`: The mouse moves to the `x,y`
+  coordinates and `mask` represents the state of the modifier keys (Control,
+  Shift and Alt) and the pointer buttons.
+* `EVENT [uzbl_instance_name] SCROLL_VERT value, min, max, page`: The page is
+  scrolled vertically, `value` is the current adjustment, `min` and `max` are
+  the minimum and maximum value of the adjustment, and `page` is the current
+  page size.
+* `EVENT [uzbl_instance_name] SCROLL_HORIZ value, min, max, page`: The page is
+  scrolled horizontally, `value` is the current adjustment, `min` and `max` are
+  the minimum and maximum value of the adjustment, and `page` is the current
+  page size.
 * `EVENT [uzbl_instance_name] KEY_PRESS key_name`: The key (or mouse button)
   `key_name` is pressed.
 * `EVENT [uzbl_instance_name] KEY_RELEASE key_name`: The key (or mouse button)
