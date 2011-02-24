@@ -185,9 +185,15 @@ function reDrawHints(elems, chars) {
     removeAllHints();
     var hintdiv = doc.createElement('div');
     hintdiv.setAttribute('id', uzbldivid);
+    var leading = (elems[0].length / 10) >> 0;
     for (var i = 0; i < elems[0].length; i++) {
         if (elems[0][i]) {
-            var label = elems[1][i].substring(chars);
+            if ((elems[1][i] >> 0) > leading) {
+                var label = elems[1][i] >> 0;
+            }
+            else {
+                var label = elems[1][i].substring(chars);
+            }
             var h = generateHint(elems[0][i], label);
             hintdiv.appendChild(h);
         }
@@ -245,9 +251,10 @@ function followLinks(follow) {
     var formelems = addFormElems();
     var elems = [linkelems[0].concat(formelems[0]), linkelems[1].concat(formelems[1])];
     var len = labelLength(elems[0].length);
+    var leading = (elems[0].length / 10) >> 0;
     var oldDiv = doc.getElementById(uzbldivid);
     var leftover = [[], []];
-    if (s.length == len && linknr < elems[0].length && linknr >= 0) {
+    if ((s.join("") > leading || s.length == len) && linknr < elems[0].length && linknr >= 0) {
         return clickElem(elems[0][linknr]);
     } else {
         for (var j = 0; j < elems[0].length; j++) {
